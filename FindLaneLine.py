@@ -1,3 +1,5 @@
+# Process the images to find lane line 
+# main function is used to output the result video
 import numpy as np
 import cv2
 from LineClass import Line
