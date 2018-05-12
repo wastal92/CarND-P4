@@ -75,7 +75,7 @@ I implemented this step in lines 215-247 in `FindLaneLine.py`. Here is an exampl
 
 ### Pipeline (video)
 
-Here's a link to my video result.
+Here's a [link](https://github.com/wastal92/CarND-P4/blob/master/project_video_result.mp4) to my video result.
 
 ---
 
