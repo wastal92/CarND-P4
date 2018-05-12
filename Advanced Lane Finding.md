@@ -24,7 +24,7 @@ The code for this part is contained in the `GetCameraParas.py`. First I prepared
 
 I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrationCamera()` funtion. I applied this distortion correction to the test image using the `cv2.undistort()` funtion and obtained this result:
 
-![p1]()
+![p1](https://github.com/wastal92/CarND-P4/blob/master/examples/p1.jpg)
 
 ### Pipeline (single images)
 
@@ -32,13 +32,13 @@ I then used the output `objpoints` and `imgpoints` to compute the camera calibra
 
 To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this one: 
 
-![p2]()
+![p2](https://github.com/wastal92/CarND-P4/blob/master/examples/p2.jpg)
 
 #### 2. Color and gradient thresholds for image preprocessing
 
 I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at function `ColorGradientThreshold()` in `PreprocessImage.py`). Here's an example of my output for this step:
 
-![p3]()
+![p3](https://github.com/wastal92/CarND-P4/blob/master/examples/p3.jpg)
 
 #### 3. Perform a perspective transform
 
@@ -53,13 +53,13 @@ The code for my perspective transform includes a function called `PerspectiveTra
 
 I verified that my perspective transform was working as expected by drawing the src and dst points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 
-![p4]()
+![p4](https://github.com/wastal92/CarND-P4/blob/master/examples/p4.jpg)
 
 #### 4. Identify lane line pixels and fit them
 
 I used sliding windows to search the lane line pixels on the warped image for the first time(codes located at function `slidingwindowsearch()` in `FindLaneLine.py`). Then I searched in a margin around the previous line position for the following frame of the video(line 145-155 in `FindLaneLine.py`). After each search I fit these pixels with a 2nd order polynomial and then performed sanity check including similar curvature and reasonable distance horizontally(codes found at function `fitandcheck()` in `FindLaneLine.py`). If the fit line passed the check, it would be appended to the recent 5 measurements and then take an average to obtain the lane position. But if the fit line failed, the line would droped and the measurement list remain the same. So the lane would be the same as the previous frame until a eligible fit line was found. The found pixels and the fit line in an example is like this:
 
-![p5]()
+![p5](https://github.com/wastal92/CarND-P4/blob/master/examples/p5.jpg)
 
 #### 5. Calculate radius of the lane and position of the vehicle
 
@@ -69,7 +69,7 @@ I did this in the function `getcurveandposition()` in `FindLaneLine.py`.
 
 I implemented this step in lines 215-247 in `FindLaneLine.py`. Here is an example of my result on a test image:
 
-![p6]()
+![p6](https://github.com/wastal92/CarND-P4/blob/master/examples/p6.jpg)
 
 ---
 
